@@ -12,6 +12,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "category")
-public class ECategory {
+public class ECategory implements Serializable {
     @Id
     private UUID id;
     @NotNull

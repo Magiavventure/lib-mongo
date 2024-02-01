@@ -1,5 +1,6 @@
 package it.magiavventure.mongo.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,7 +16,8 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class User implements Serializable {
 
     @NotNull
     private UUID id;
