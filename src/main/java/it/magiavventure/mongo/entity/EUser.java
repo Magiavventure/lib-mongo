@@ -1,6 +1,7 @@
 package it.magiavventure.mongo.entity;
 
 import it.magiavventure.mongo.model.Category;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +24,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "user")
-public class EUser {
+public class EUser implements Serializable {
     @Id
     private UUID id;
     @NotNull
@@ -34,6 +36,8 @@ public class EUser {
     private LocalDateTime createdDate;
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
+    @NotEmpty
+    private List<String> authorities;
 
     @Version
     private Long version;
