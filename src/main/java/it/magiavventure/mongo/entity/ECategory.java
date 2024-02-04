@@ -11,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -31,8 +32,10 @@ public class ECategory implements Serializable {
     private String background;
     private boolean active;
     @CreatedDate
+    @Field("created_date")
     private LocalDateTime createdDate;
     @LastModifiedDate
+    @Field("last_modified_date")
     private LocalDateTime lastModifiedDate;
     @Version
     private Long version;
