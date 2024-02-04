@@ -13,6 +13,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -30,15 +31,18 @@ public class EUser implements Serializable {
     @NotNull
     @Indexed(unique = true)
     private String name;
+    @Field("preferred_categories")
     private List<Category> preferredCategories;
-    private boolean active;
     @CreatedDate
+    @Field("created_date")
     private LocalDateTime createdDate;
     @LastModifiedDate
+    @Field("last_modified_date")
     private LocalDateTime lastModifiedDate;
     @NotEmpty
     private List<String> authorities;
-
+    @Field("ban_expiration")
+    private LocalDateTime banExpiration;
     @Version
     private Long version;
 }
