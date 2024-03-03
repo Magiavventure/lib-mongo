@@ -31,6 +31,8 @@ public class EUser implements Serializable {
     @NotNull
     @Indexed(unique = true)
     private String name;
+    @NotNull
+    private String avatar;
     @Field("preferred_categories")
     private List<Category> preferredCategories;
     @CreatedDate
