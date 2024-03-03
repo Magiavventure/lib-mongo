@@ -27,6 +27,9 @@ public class User implements Serializable {
 
     private List<Category> preferredCategories;
 
+    @NotNull
+    private String avatar;
+
     @NotEmpty
     private List<String> authorities;
 
